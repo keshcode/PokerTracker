@@ -1,12 +1,11 @@
 package com.example.keshav.pokar;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 public class ShowChipManupilationActivity extends AppCompatActivity {
+    public static final String PREFS_NAME = "MyPrefsFile";
     private static final int red = 5;
     private static final int blue = 25;
     private static final int green = 50;
@@ -17,9 +16,9 @@ public class ShowChipManupilationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_chip_manupilation);
-        SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences(PREFS_NAME, 0);
         amount = sharedPref.getInt(getString(R.string.amount), 0);
-        Toast.makeText(this, String.valueOf(amount), Toast.LENGTH_SHORT).show();
+
     }
 
     private void chipCalculation(int amount) {

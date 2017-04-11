@@ -1,6 +1,6 @@
 package com.example.keshav.pokar;
 
-import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String PREFS_NAME = "MyPrefsFile";
     private EditText etFirstName, etLastName, etAmount;
     private Button btnStart;
     private String mFullName;
@@ -24,11 +25,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getText();
-                SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences sharedPref = getSharedPreferences(PREFS_NAME,0);
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putString(getString(R.string.full_name), mFullName);
                 editor.putInt(getString(R.string.amount), mAmount);
-                editor.apply();
+                editor.commit();
+                Intent intent = new Intent(MainActivity.this, ShowChipManupilationActivity.class);
+                startActivity(intent);
             }
         });
 
