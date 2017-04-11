@@ -11,6 +11,7 @@ public class ShowChipManupilationActivity extends AppCompatActivity {
     private static final int green = 50;
     private static final int black = 100;
     private static int amount = 0;
+    private static String mFullName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class ShowChipManupilationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_chip_manupilation);
         SharedPreferences sharedPref = getSharedPreferences(PREFS_NAME, 0);
         amount = sharedPref.getInt(getString(R.string.amount), 0);
+        mFullName = sharedPref.getString(getString(R.string.full_name), "");
 
     }
 
