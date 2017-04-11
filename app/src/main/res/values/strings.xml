@@ -3,4 +3,8 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="amount">Amount</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+    <string name="black">Black</string>
 </resources>
